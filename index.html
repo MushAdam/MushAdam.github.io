@@ -236,7 +236,29 @@
       let submision = {}
       const { createClient } = supabase;
 
-      
+      function AnimateNumberOfCustomers(id, start, end, duration) {
+          var NumberToAnimate = document.getElementById(id);
+          var RangeOfNumbers = end - start;
+          var MinTimer = 50;
+          var StepTime = Math.abs(Math.floor(duration / RangeOfNumbers));
+          StepTime = Math.max(StepTime, MinTimer);
+          var StartTime = new Date().getTime();
+          var EndTime = StartTime + duration;
+          var Timer;
+        
+          function run() {
+              var Now = new Date().getTime();
+              var Remaining = Math.max((EndTime - Now) / duration, 0);
+              var Value = Math.round(end - (Remaining * RangeOfNumbers));
+              NumberToAnimate.innerHTML = "<strong>" + Value + "</strong>" + " / 500";
+              if (Value == end) {
+                  clearInterval(Timer);
+              }
+          }
+          
+          Timer = setInterval(run, StepTime);
+          run();
+      }
       function GetRandomNumberOfPreOrders(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
@@ -273,11 +295,13 @@
             if(NumberOfPreOrders != ""){
               NumberOfPreOrdersNumber.innerHTML = "<strong>" + NumberOfPreOrders + "</strong>" + " / 500";
               NumberOfPreOrdersNumber.setAttribute("style","text-align:right; opacity: 1;");
+              AnimateNumberOfCustomers("NumberOfPreOrders", 0, NumberOfPreOrders, 1000);
               NumberOfPreOrdersBar.setAttribute("style","width: " + (NumberOfPreOrders/5) + "%");
             }else{
               NumberOfPreOrders = DaysSinceEpoch;
               NumberOfPreOrdersNumber.innerHTML = "<strong>" + NumberOfPreOrders + "</strong>" + " / 500";
               NumberOfPreOrdersNumber.setAttribute("style","text-align:right; opacity: 1;");
+              AnimateNumberOfCustomers("NumberOfPreOrders", 0, NumberOfPreOrders, 1000);
               NumberOfPreOrdersBar.setAttribute("style","width: " + (NumberOfPreOrders/5) + "%");
               SetPreOrderCookie("NumberOfPreOrders", NumberOfPreOrders, 1);
             }

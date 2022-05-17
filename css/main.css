@@ -53,8 +53,9 @@ body .btn:focus {
 
 .right-column .svg-logo {
    position: absolute;
-   bottom: 30px;
-   left: 30px;
+   bottom: 0px;
+   left: 50%;
+   transform: translate(-50%, -50%);
    max-width: 130px;
 }
 
@@ -333,7 +334,7 @@ body .btn:focus {
 @media (max-width: 767px) {
    .banner {
       position: relative;
-      margin: 0 -10rem;
+      margin: 0 -9rem;
       padding: 0.25rem 10rem;
       /* background: rgba(0, 0, 0, 0.5); */
       background-image: url('/img/mobile-background.jpg');
@@ -356,15 +357,16 @@ body .btn:focus {
    }
 
    .banner .logo-mobile {
-      margin-left: -18px;
-      margin-top: -4px;
+      width: 100px;
+      margin-left: 10px;
+      margin-top: 20px;
    }
 
    .banner h2 {
       color: #fff;
       font-size: 48px;
       line-height: 1;
-      margin-top: 350px;
+      margin-top: 272px;
       margin-bottom: 40px;
    }
 
