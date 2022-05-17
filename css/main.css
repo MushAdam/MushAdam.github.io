@@ -53,7 +53,7 @@ body .btn:focus {
 
 .right-column .svg-logo {
    position: absolute;
-   bottom: 0px;
+   bottom: -25px;
    left: 50%;
    transform: translate(-50%, -50%);
    max-width: 130px;
