@@ -33,6 +33,13 @@ body .btn:focus {
    margin-bottom: 67px;
 }
 
+.NumberOfPreOrdersClass{
+   transition: opacity 1s ease-in-out;
+   text-size-adjust: none;
+   white-space: nowrap; 
+}
+
+
 .right-column {
    height: 100vh;
    background-image: url("/img/background-image.jpg");
@@ -55,15 +62,19 @@ body .btn:focus {
    background-image: url('/img/body-background-top.png');
    background-position: top right;
    background-repeat: no-repeat;
-   background-size: contain;
+   background-size: 790px 250px;
+
 }
 
-.left-column>.row {
+.container-fluid{
    background-image: url('/img/body-background-left.png');
-   background-position: center left;
+   background-position: top left;
    background-repeat: no-repeat;
-   background-size: contain;
+   background-size: 650px 1150px;
 }
+.left-column>.row {
+}
+
 
 #accordion .card-header {
    height: 65px;
@@ -197,6 +208,7 @@ body .btn:focus {
 
 .progress-bar {
    background-color: #26C78D;
+   transition: width 1s ease-in-out;
 }
 
 .modal .btn-close {

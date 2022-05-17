@@ -19,7 +19,50 @@
 
 
     <title>Curaid</title>
-
+    <script>
+      AccordionHTML = `<div id="accordion" class="accordion cmb-1">
+                  <div class="card">
+                    <div class="card-header d-flex flex-wrap align-content-center">
+                      <a class="btn w-100 d-block" data-bs-toggle="collapse" href="#collapseOne">
+                        Specially designed for men with... <i style="float: right;" class="bi accordion-icon"></i>
+                      </a>
+                      
+                    </div>
+                    <div id="collapseOne" class="collapse" data-bs-parent="#accordion">
+                      <div class="card-body pb-4">
+                        <div class="row">
+                          <div class="col-md-6" style="">
+                            <ul class="list-group list-group-flush">
+                              <li class="list-group-item"><i class="bi bi-check2"></i> <p>Oily/shiny skin</p></li>
+                              <li class="list-group-item"><i class="bi bi-check2"></i> <p>Textured skin</p></li>
+                              <li class="list-group-item"><i class="bi bi-check2"></i> <p>Pimples</p></li>
+                              <li class="list-group-item"><i class="bi bi-check2"></i> <p>Black heads</p></li>
+                            </ul>
+                          </div>
+                          <div class="col-md-6" style="">
+                            <ul class="list-group list-group-flush">
+                              <li class="list-group-item"><i class="bi bi-check2"></i> <p>Large Pores</p></li>
+                              <li class="list-group-item"><i class="bi bi-check2"></i> <p>Red spots</p></li>
+                              <li class="list-group-item"><i class="bi bi-check2"></i> <p>Flaky skin</p></li>
+                              <li class="list-group-item"><i class="bi bi-check2"></i> <p>Demaged skin barrier</p></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>   
+                </div>`
+                const GetDeviceType = () => {
+                  const ua = navigator.userAgent;
+                  if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+                      return "tablet";
+                  }
+                  else if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) {
+                      return "mobile";
+                  }
+                    return "desktop";
+                };
+    </script>
   </head>
     <body>
         <!--[if lt IE 8]>
@@ -38,42 +81,25 @@
                   <h2 style="position: relative;">Get free one month supply</h2>
                 
               </div>
-              <p class="content-text">Why explain the benefits if you can <strong>try the Curaid</strong> yourself? <strong>Leave us your email</strong> and we'll send you free one month supply of our new <strong>science-based</strong> skincare products: <strong>1x</strong> Cleanser 50 ml + <strong>1x</strong> Cream 50 ml</p>
-
-              <div id="accordion" class="accordion cmb-1">
-                <div class="card">
-                  <div class="card-header d-flex flex-wrap align-content-center">
-                    <a class="btn w-100 d-block" data-bs-toggle="collapse" href="#collapseOne">
-                      Specially designed for men with... <i style="float: right;" class="bi accordion-icon"></i>
-                    </a>
-                    
-                  </div>
-                  <div id="collapseOne" class="collapse" data-bs-parent="#accordion">
-                    <div class="card-body pb-4">
-                      <div class="row">
-                        <div class="col-md-6" style="">
-                          <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><i class="bi bi-check2"></i> <p>Oily/shiny skin</p></li>
-                            <li class="list-group-item"><i class="bi bi-check2"></i> <p>Textured skin</p></li>
-                            <li class="list-group-item"><i class="bi bi-check2"></i> <p>Pimples</p></li>
-                            <li class="list-group-item"><i class="bi bi-check2"></i> <p>Black heads</p></li>
-                          </ul>
-                        </div>
-                        <div class="col-md-6" style="">
-                          <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><i class="bi bi-check2"></i> <p>Large Pores</p></li>
-                            <li class="list-group-item"><i class="bi bi-check2"></i> <p>Red spots</p></li>
-                            <li class="list-group-item"><i class="bi bi-check2"></i> <p>Flaky skin</p></li>
-                            <li class="list-group-item"><i class="bi bi-check2"></i> <p>Demaged skin barrier</p></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>   
+              <div id="MobileAccordionLocation" style="margin-top: 25px;">
               </div>
+              <script>
+                if(GetDeviceType() == "mobile"){
+                  document.getElementById("MobileAccordionLocation").innerHTML = AccordionHTML;
+                  document.getElementById("accordion").setAttribute("style","margin-bottom: 0px;");
+                }
+              </script>
+              <p class="content-text">Why explain the benefits if you can <strong>try the Curaid</strong> yourself? <strong>Leave us your email</strong> and we'll send you free one month supply of our new <strong>science-based</strong> skincare products: <strong>1x</strong> Cleanser 50 ml + <strong>1x</strong> Cream 50 ml</p>
+              <div id="DesktopAccordionLocation">
+              </div>
+              <script>
+                if(GetDeviceType() == "desktop" || GetDeviceType() == "tablet"){
+                  document.getElementById("DesktopAccordionLocation").innerHTML = AccordionHTML;
+                }
+              </script>
               
-              <p class="sign-up-heading" style="">Sign up and get free&nbsp;1-month supply</p>
+              
+              <p class="sign-up-heading" style="">Sign up and get free&nbsp;1&#8209;month supply</p>
 
               <!-- Button trigger modal -->
               <button type="button" class="btn btn-primary btn-lg btn-block w-100 d-block cmb-1" data-bs-toggle="modal" data-bs-target="#modal">Unlock your supply</button>
@@ -84,7 +110,7 @@
                   <div class="modal-content">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="modal-header">
-                      <h3 class="modal-title" id="ModalLabel">Sign up to waitlist and get free 1-month supply</h3>
+                      <h3 class="modal-title" id="ModalLabel">Sign up to waitlist and get free 1&#8209;month supply</h3>
                     </div>
                     <div class="modal-body">
                       <p>Skin type:</p>
@@ -103,7 +129,7 @@
                       </div>
                       <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="normal" required>
-                        <label class="form-check-label" for="inlineRadio3">Normal</label>
+                        <label class="form-check-label" for="inlineRadio4">Normal</label>
                       </div>
 
 
@@ -152,7 +178,7 @@
                           <p class="text-left">The first 500 people</p>
                         </div>
                         <div class="col-4 col-md-6">
-                          <p class="text-right" style="text-align:right;" id="NumberOfPreOrders"><strong>0</strong> / 500</p>
+                          <p class="text-right NumberOfPreOrdersClass" style="text-align:right; opacity: 0;" id="NumberOfPreOrders"></p>
                         </div>
                       </div>
                       <div class="progress">
@@ -190,36 +216,75 @@
     <script src="https://unpkg.com/@supabase/supabase-js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+      let DaysSinceEpoch = Math.round(Date.now() / 8.64e7);
+      SlicedStringOfDays = String(DaysSinceEpoch - 9029).slice(1);
+      console.log(SlicedStringOfDays - 9029);
+      DaysSinceEpoch = Math.round(Number(SlicedStringOfDays) * 3.07);
       NumberOfPreOrdersBar = document.getElementById("NumberOfPreOrdersBar");
       FormSubmitButton = document.getElementById("FormSubmit");
       NumberOfPreOrdersNumber = document.getElementById("NumberOfPreOrders");
+
       const form = document.querySelector('#contact-form');
       const formInputs = form.querySelectorAll('input');
       let submision = {}
       const { createClient } = supabase;
-      let numberOfCustomers = 0;
-      UserExists = false;
-      supabase = createClient("https://auoxoswqglhbrrfkivtz.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF1b3hvc3dxZ2xoYnJyZmtpdnR6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTIxNzgyNDcsImV4cCI6MTk2Nzc1NDI0N30.8BcYSvppHR30ZuYRg4JP8CSINk8bURCfXCoIYyoV5UM");
-      const { data, error } =  supabase.from('CuriadPreOrderForm').select('id').then(response => {
-        if(response.error != null){
-            numberOfCustomers = 500;
-            NumberOfPreOrdersNumber.innerHTML = "<strong>" + numberOfCustomers + "</strong>" + " / 500";
-            FormSubmitButton.innerHTML = "Maximum of preorders have been reached, Sorry !"
-            NumberOfPreOrdersBar.setAttribute("style","width: " + (numberOfCustomers/5) + "%");
-            FormSubmitButton.setAttribute("disabled", "");
-        } else {
-          numberOfCustomers = response.data.length;
-          if(numberOfCustomers >= 500){
-            NumberOfPreOrdersNumber.innerHTML = "<strong>" + 500 + "</strong>" + " / 500";
-            FormSubmitButton.innerHTML = "Maximum of preorders have been reached, Sorry !"
-            NumberOfPreOrdersBar.setAttribute("style","width: " + (500/5) + "%");
-            FormSubmitButton.setAttribute("disabled", "");
-          }else{
-            NumberOfPreOrdersNumber.innerHTML = "<strong>" + numberOfCustomers + "</strong>" + " / 500";
-            NumberOfPreOrdersBar.setAttribute("style","width: " + (numberOfCustomers/5) + "%");
+
+      
+      function GetRandomNumberOfPreOrders(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min) + min);
+      }
+      function SetPreOrderCookie(CookieName, CookieValue, ExpiresInDays) {
+      const d = new Date();
+        d.setTime(d.getTime() + (ExpiresInDays*24*60*60*1000));
+        let expires = "expires="+ d.toUTCString();
+        document.cookie = CookieName + "=" + CookieValue + ";" + expires + ";path=/";
+      }
+
+      function GetPreOrderCookie(CookieName) {
+        let name = CookieName + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i <ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
           }
         }
-      });
+        return "";
+      }
+      
+      var HasPlayedAnimation = false;
+      var AnimationObserver = new IntersectionObserver(function(entries) {
+        if(entries[0].isIntersecting === true){
+          if(HasPlayedAnimation ==  false){
+            NumberOfPreOrders = GetPreOrderCookie("NumberOfPreOrders");
+            if(NumberOfPreOrders != ""){
+              NumberOfPreOrdersNumber.innerHTML = "<strong>" + NumberOfPreOrders + "</strong>" + " / 500";
+              NumberOfPreOrdersNumber.setAttribute("style","text-align:right; opacity: 1;");
+              NumberOfPreOrdersBar.setAttribute("style","width: " + (NumberOfPreOrders/5) + "%");
+            }else{
+              NumberOfPreOrders = DaysSinceEpoch;
+              NumberOfPreOrdersNumber.innerHTML = "<strong>" + NumberOfPreOrders + "</strong>" + " / 500";
+              NumberOfPreOrdersNumber.setAttribute("style","text-align:right; opacity: 1;");
+              NumberOfPreOrdersBar.setAttribute("style","width: " + (NumberOfPreOrders/5) + "%");
+              SetPreOrderCookie("NumberOfPreOrders", NumberOfPreOrders, 1);
+            }
+            HasPlayedAnimation = true;
+          }
+          
+        }
+      }, { threshold: [1] });
+
+      AnimationObserver.observe(document.getElementById("NumberOfPreOrdersBar"));
+      
+      UserExists = false;
+
+      supabase = createClient("https://auoxoswqglhbrrfkivtz.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF1b3hvc3dxZ2xoYnJyZmtpdnR6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTIxNzgyNDcsImV4cCI6MTk2Nzc1NDI0N30.8BcYSvppHR30ZuYRg4JP8CSINk8bURCfXCoIYyoV5UM");
 
       form.addEventListener('submit', async (event) => {
           event.preventDefault()
@@ -249,8 +314,16 @@
           if(UserExists == false){
             const { error , data} = await supabase.from('CuriadPreOrderForm').insert([submision], { returning: 'minimal'})
             if (error) {
-                alert('There was an error please try again')
+              Swal.fire({
+              position: 'center',
+              icon: 'error',
+              title: 'There was unexpected error. Plese contact support.',
+              showConfirmButton: false,
+              timer: 2500
+              });
             } else {
+              NumberOfPreOrders++;
+              SetPreOrderCookie("NumberOfPreOrders", NumberOfPreOrders, 365);
               Swal.fire({
               position: 'center',
               icon: 'success',
