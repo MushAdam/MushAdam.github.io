@@ -34,7 +34,9 @@ body .btn:focus {
 }
 
 .NumberOfPreOrdersClass{
-   transition: opacity 1s ease-in-out;
+   transition-property: opacity;
+   transition-duration: 1s;
+   transition-timing-function: ease-in-out;
    text-size-adjust: none;
    white-space: nowrap; 
 }
@@ -209,7 +211,9 @@ body .btn:focus {
 
 .progress-bar {
    background-color: #26C78D;
-   transition: width 1s ease-in-out;
+   transition-property: width;
+   transition-duration: 1s;
+   transition-timing-function: ease-in-out;
 }
 
 .modal .btn-close {
